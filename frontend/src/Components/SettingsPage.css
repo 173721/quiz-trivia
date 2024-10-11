@@ -1,0 +1,115 @@
+/* Basic layout */
+.settings-page {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Dark mode */
+  .settings-page.dark-mode {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* Light mode */
+  .settings-page.light-mode {
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  /* Section headers */
+  .settings-section h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+  }
+  
+  /* Form labels and inputs */
+  .settings-section label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  
+  .settings-section input[type="text"],
+  .settings-section select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: inherit;
+    background-color: inherit;
+  }
+  
+  .settings-section input[type="file"] {
+    margin-top: 10px;
+  }
+  
+  .settings-section input[type="checkbox"] {
+    margin-left: 10px;
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+  
+  /* Profile preview */
+  .profile-preview {
+    margin-top: 15px;
+  }
+  
+  .profile-pic-preview {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Dark mode checkbox label */
+  .settings-section label[for="darkMode"] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+  }
+  
+  /* Save button */
+  .save-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .save-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .settings-page {
+      padding: 15px;
+    }
+  
+    .settings-section label {
+      margin-bottom: 8px;
+    }
+  
+    .settings-section h2 {
+      font-size: 20px;
+    }
+  
+    .save-button {
+      font-size: 14px;
+      padding: 8px 15px;
+    }
+  }
+  
