@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Components/styles.css";
 import useSound from "use-sound";
@@ -9,9 +9,7 @@ const Welcome = () => {
   const navigate = useNavigate();
 
   // State to store the user's name
-  const [userName, setUserName] = useState(
-    localStorage.getItem("userName") || ""
-  );
+   let userName = localStorage.getItem("userName") || ""
 
   const [playstart] = useSound(welcomeStart);
 
@@ -25,7 +23,7 @@ const Welcome = () => {
 
     // Clean up the timeout when the component is unmounted
     return () => clearTimeout(timer);
-  }, [navigate, userName]);
+  }, [navigate]);
 
   const handleStartClick = () => {
     playstart();

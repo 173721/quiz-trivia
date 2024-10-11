@@ -6,6 +6,8 @@ import Modal from "./Modal"; // Import the Modal component
 import { auth, googleProvider } from "../firebaseConfig";
 import { signInWithPopup } from "firebase/auth";
 import GoogleIcon from "../Assets/google.png";
+import noImage from "../Assets/noImage.jpg";
+
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -157,7 +159,7 @@ function Login() {
             className="google-button"
             disabled={loading}
           >
-            <img src={GoogleIcon} className="google-logo" />
+            <img src={GoogleIcon} className="google-logo" alt={noImage} />
             {loading ? "Logging in..." : "Login with Google"}
           </button>
         </div>

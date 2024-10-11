@@ -7,9 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Profile = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [profilePic, setProfilePic] = useState(DefaultProfilePic); // State to store profile picture
-  const [userName, setUserName] = useState(localStorage.getItem("userName"));
   const navigate = useNavigate();
-  // const fileInputRef = useRef(null);
 
   useEffect(() => {
     // Fetch the profile picture from localStorage or database
@@ -40,38 +38,23 @@ const Profile = () => {
     }
   };
 
-  // // Trigger the file input when profile picture is clicked
-  // const triggerFileInput = () => {
-  //   fileInputRef.current.click(); // Simulate file input click
-  // };
-
   return (
     <div>
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0 profile-menu">
         <li className="nav-item dropdown">
-          <button
-            className="nav-link dropdown-toggle"
-            id="navbarDropdown"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            style={{ background: "none", border: "none", cursor: "pointer" }}
+          <div
+            className="profile-pic"
+            data-bs-toggle="dropdown" // Dropdown triggered by the profile pic
+            style={{ cursor: "pointer" }}
           >
-            <div
-              className="profile-pic"
-              // onClick={triggerFileInput}
-              style={{ cursor: "pointer" }}
-            >
-              <img
-                src={profilePic}
-                alt="Profile"
-                className="img-fluid rounded-circle"
-              />{" "}
-              &nbsp;
-            </div>
-          </button>
-          {/* <span style={{ fontSize: "20px" }}>
-            {localStorage.getItem("userName")}
-          </span> */}
+            <img
+              src={profilePic}
+              alt="Profile"
+              className="img-fluid rounded-circle"
+            />{" "}
+            &nbsp;
+          </div>
+          
           <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
               <a className="dropdown-item" href="/accounts">
@@ -106,7 +89,6 @@ const Profile = () => {
 
       {/* Hidden File Input */}
       <input
-        // ref={fileInputRef}
         type="file"
         accept="image/*"
         onChange={handleProfilePicUpload}

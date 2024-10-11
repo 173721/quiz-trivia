@@ -109,26 +109,27 @@ const CommonComponent2 = (props) => {
   //       });
   //     }, 1000);
   //   }, [handleGameLost, playTimer, stopTimer]);
-  const resetTimer = () => {
-    if (timerRef.current) clearInterval(timerRef.current);
-    setTimer(20);
-    setIsBlinking(true); // Start blinking
-
-    timerRef.current = setInterval(() => {
-      setTimer((prev) => {
-        if (prev <= 1) {
-          clearInterval(timerRef.current);
-          stopTimer();
-          handleGameLost("Time's up! You lost the game.");
-          setIsBlinking(false); // Stop blinking when time's up
-          return 0;
-        }
-        playTimer();
-        return prev - 1;
-      });
-    }, 1000);
-  };
+  
   useEffect(() => {
+    const resetTimer = () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+      // setTimer(20);
+      setIsBlinking(true); // Start blinking
+  
+      timerRef.current = setInterval(() => {
+        setTimer((prev) => {
+          if (prev <= 1) {
+            clearInterval(timerRef.current);
+            stopTimer();
+            handleGameLost("Time's up! You lost the game.");
+            setIsBlinking(false); // Stop blinking when time's up
+            return 0;
+          }
+          playTimer();
+          return prev - 1;
+        });
+      }, 1000);
+    };
     if (gameStatus === "playing") {
       resetTimer();
     }
@@ -138,7 +139,7 @@ const CommonComponent2 = (props) => {
         clearInterval(timerRef.current);
       }
     };
-  }, [currentQuestionIndex, gameStatus]);
+  }, [currentQuestionIndex, gameStatus,handleGameLost,playTimer]);
 
   const handleAnswerClick = useCallback(
     (option) => {
